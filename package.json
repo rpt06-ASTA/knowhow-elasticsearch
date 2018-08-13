@@ -1,0 +1,24 @@
+{
+  "name": "knowhow-search-service",
+  "version": "1.0.0",
+  "description": "Search service for knowhow CMS and widget",
+  "main": "index.js",
+  "scripts": {
+    "server-dev": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rpt06-ASTA/knowhow-search-service.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rpt06-ASTA/knowhow-search-service/issues"
+  },
+  "homepage": "https://github.com/rpt06-ASTA/knowhow-search-service#readme",
+  "dependencies": {
+    "elasticsearch": "^15.1.1",
+    "express": "^4.16.3"
+  }
+}
