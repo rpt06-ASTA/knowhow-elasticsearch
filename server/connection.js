@@ -36,3 +36,35 @@ client.ping({
     console.log('All is well');
   }
 });
+
+// if index doesn't exist, create it and specify mappings
+const makeIndex = () => {
+  client.indices.exists({
+    index: index
+  }).then(result => {
+      if (!result) {
+       client.indices.create({
+        index: index
+      }).then((err, response) => {
+        // console.log(err, response);
+        if (!err) {
+          const schema = {
+            id: { type: 'double' },
+            title: { type: 'text' },
+            description: { type: 'text' },
+            content: { type: 'text' },
+            companyId: { type: 'double' },
+            categoryId: { type: 'double' }
+          }
+          client.indices.putMapping({ index, type, body: {properties: schema }})
+          .then((err, response) => {
+            console.log(err, response);
+          })
+        }
+      })
+    }
+  });
+};
+
+makeIndex();
+
