@@ -18,7 +18,6 @@ const deleteArticle = (articleId, callback) => {
 
 // update an article in elasticsearch index
 const updateArticle = (article, callback) => {
-  var article = JSON.parse(article);
   var id = article.id;
   var title = article.title;
   var description = article.description;
@@ -42,7 +41,6 @@ const updateArticle = (article, callback) => {
 
 // add an article to ES index
 const addArticle = (article, callback) => {
-  var article = JSON.parse(article);
   client.index({
     index: index,
     type: type,
