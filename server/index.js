@@ -27,11 +27,17 @@ app.post('/api/addarticle', (req, res) => {
 
 app.patch('/api/updatearticle', (req, res) => {
   let article = req.body;
-  console.log('REQ.BODY', req.body)
   helpers.updateArticle(article, (done) => {
     res.send(done);
   });
 })
+
+app.delete('/api/deletearticle/:id', (req, res) => {
+  let articleId = req.params.id;
+  helpers.deleteArticle(articleId, (done) => {
+    res.send(done);
+  })
+});
 
 app.listen(PORT, () => {
   console.log(`listening on port ${PORT}`);
