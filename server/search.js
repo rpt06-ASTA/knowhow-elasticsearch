@@ -26,9 +26,10 @@ const queryTerm = (term, companyId, offset, callback) => {
     size: 100
   };
   client.search({index, type, body})
-    .then(results => {
-      callback(results.hits);
+    .then(response => {
+      const results = response.hits.hits.map(item => item._source);
+      callback(results);
     });
 };
 
-module.exports = queryTerm;
+module.exports = { queryTerm };
