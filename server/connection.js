@@ -53,8 +53,8 @@ const makeIndex = () => {
             title: { type: 'text' },
             description: { type: 'text' },
             content: { type: 'text' },
-            companyId: { type: 'double' },
-            categoryId: { type: 'double' }
+            companyid: { type: 'double' },
+            categoryid: { type: 'double' }
           }
           client.indices.putMapping({ index, type, body: {properties: schema }})
           .then((err, response) => {
@@ -68,3 +68,8 @@ const makeIndex = () => {
 
 makeIndex();
 
+module.exports = {
+  index: index,
+  type: type,
+  client: client
+}
