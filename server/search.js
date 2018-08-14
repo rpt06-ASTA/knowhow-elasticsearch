@@ -1,6 +1,6 @@
 const { client, index, type } = require('./connection');
 
-// search function for all articles with a given search term and companyId
+// search function to search for all articles with a given search term and companyId
 const queryTerm = (term, companyId, offset, callback) => {
   const body = {
     // from allows us to paginate the results
