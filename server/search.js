@@ -13,7 +13,7 @@ const queryTerm = (term, companyId, offset, callback) => {
             // 'and' operator is used to prioritize results that contain all of the tokens in the query
             operator: 'and',
             type: "most_fields",
-            fields: ['title', 'description', 'content'],
+            fields: ['title', 'description', 'content.slice(0, 1000)'],
             // fuzziness adjusts tolerance for spelling mistakes, higher fuzziness will allow for more corrections in result hits
             fuzziness: 'auto'
           }
